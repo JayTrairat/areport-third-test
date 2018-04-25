@@ -34,9 +34,14 @@ def main():
     with open('assets/important_words_PRE.txt', 'w', encoding='utf8') as outp:
         PRE = [content[0] for content in contents]
         outp.write('\n'.join(PRE))
+
     with open('assets/important_words_MIDPRE.txt', 'w', encoding='utf8') as outp:
         MIDPRE = ['|'.join(content[1:-1]) for content in contents]
         outp.write('\n'.join(MIDPRE))
+
+    with open('assets/important_words_MIDPOST.txt', 'w', encoding='utf8') as outp:
+        outp.write('\n')
+
     with open('assets/important_words_POST.txt', 'w', encoding='utf8') as outp:
         POST = [content[len(content)-1] for content in contents]
         outp.write('\n'.join(POST))
