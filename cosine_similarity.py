@@ -17,18 +17,18 @@ def get_cosine(vec1, vec2):
 
 def main():
     try:
-        with open('areport-third-test/assets/original.txt', 'r', encoding='utf8') as original:
+        with open('assets/original.txt', 'r', encoding='utf8') as original:
             original_contents = original.readlines()
             original_contents = [''.join(content.strip().split('|')) for content in original_contents]
 
-        with open('areport-third-test/result.txt', 'r', encoding='utf8') as source:
+        with open('result.txt', 'r', encoding='utf8') as source:
             contents = source.readlines()
             contents = [content.strip() for content in contents]
 
         tokenized_contents = [list(word_tokenize(content)) for content in contents]
         original_tokenized_contents = [list(word_tokenize(content)) for content in original_contents]
 
-        with open('areport-third-test/assets/cosine_values.txt', 'w', encoding='utf8') as result:
+        with open('assets/cosine_values.txt', 'w', encoding='utf8') as result:
             for sentence in (tokenized_contents):
                 for original_sentence in (original_tokenized_contents):
                     vector1 = (count(sentence))
@@ -38,7 +38,7 @@ def main():
                         result.write('"' + (''.join(sentence)) + '"' + ' COMPARED TO ' + '"' + (''.join(original_sentence)) + '"' + ' = ' + str(cosine))
                         result.write('\n')
 
-        with open('areport-third-test/assets/cosine_values_only_value.txt', 'w', encoding='utf8') as result:
+        with open('assets/cosine_values_only_value.txt', 'w', encoding='utf8') as result:
             for sentence in (tokenized_contents):
                 for original_sentence in (original_tokenized_contents):
                     vector1 = (count(sentence))
@@ -52,8 +52,6 @@ def main():
         print(e)
     else:
         print('done')
-    # with open('areport-third-test/assets/naming_list_6_pos.txt', 'r', encoding='utf8') as source:
-    #     contents = source.readlines()
 
 if __name__ == '__main__':
     main()
