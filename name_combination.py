@@ -1,18 +1,20 @@
 def main():
-    with open('assets/important_words_PRE.txt', 'r', encoding='utf8') as source:
+    with open('areport-third-test/assets/important_words/important_words_pos_1.txt', 'r', encoding='utf8') as source:
         PRE = [content.strip() for content in source.readlines()[:10]]
 
-    with open('assets/important_words_MIDPRE.txt', 'r', encoding='utf8') as source:
+    with open('areport-third-test/assets/important_words/important_words_pos_2.txt', 'r', encoding='utf8') as source:
         MIDPRE = [content.strip() for content in source.readlines()[:10]]
 
-    with open('assets/important_words_MIDPOST.txt', 'r', encoding='utf8') as source:
+    with open('areport-third-test/assets/important_words/important_words_pos_3.txt', 'r', encoding='utf8') as source:
         MIDPOST = [content.strip() for content in source.readlines()[:10]]
 
-    with open('assets/important_words_POST.txt', 'r', encoding='utf8') as source:
+    with open('areport-third-test/assets/important_words/important_words_pos_4.txt', 'r', encoding='utf8') as source:
         POST = [content.strip() for content in source.readlines()[:10]]
 
     result = [pre + midpre + midpost + post for pre in PRE for midpre in MIDPRE for midpost in MIDPOST for post in POST]
-    print(result)
+    with open('areport-third-test/result.txt', 'w', encoding='utf8') as outp:
+        outp.write('\n'.join(result))
+    
 
 if __name__ == '__main__':
     main()
